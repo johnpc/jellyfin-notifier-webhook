@@ -19,7 +19,10 @@
     "pretest": "npm run lint",
     "test:watch": "jest --coverage --watch",
     "copy:config": "copysrc",
-    "prepare": "husky"
+    "prepare": "husky",
+    "testSendViaWebhook": "tsx ./src/test-send-webhook-via-server.ts",
+    "testSendDirect": "tsx ./src/test-send-message-direct.ts",
+    "testListSessions": "tsx ./src/test-list-sessions.ts"
   },
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
