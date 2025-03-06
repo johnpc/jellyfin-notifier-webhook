@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+node_modules
+dist
+Config
+.gitignore
+.prettierignore
+.husky
+*.iml
+.env*

@@ -1,0 +1,12 @@
+/node_modules
+/build
+/dist
+/coverage
+.eslintcache
+test.ts
+*.iml
+
+# amplify
+.amplify
+amplify_outputs*
+amplifyconfiguration*
