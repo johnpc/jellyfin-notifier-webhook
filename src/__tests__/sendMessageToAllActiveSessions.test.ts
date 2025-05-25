@@ -60,7 +60,7 @@ describe('sendMessageToAllActiveSessions', () => {
     mockSessionApi.getSessions.mockResolvedValue(mockSessions);
 
     // Act
-    const messagesSent = await sendMessageToAllActiveSessions('Test message');
+    const messagesSent = await sendMessageToAllActiveSessions('Test message', 'Test');
 
     // Assert
     expect(getAuthenticatedJellyfinApi).toHaveBeenCalledTimes(1);
@@ -83,7 +83,7 @@ describe('sendMessageToAllActiveSessions', () => {
     mockSessionApi.getSessions.mockResolvedValue(mockSessions);
 
     // Act
-    const messagesSent = await sendMessageToAllActiveSessions('Test message');
+    const messagesSent = await sendMessageToAllActiveSessions('Test message', 'Test');
 
     // Assert
     expect(mockSessionApi.getSessions).toHaveBeenCalledTimes(1);
@@ -102,7 +102,7 @@ describe('sendMessageToAllActiveSessions', () => {
     mockSessionApi.getSessions.mockResolvedValue(mockSessions);
 
     // Act
-    const messagesSent = await sendMessageToAllActiveSessions('Test message');
+    const messagesSent = await sendMessageToAllActiveSessions('Test message', 'Test');
 
     // Assert
     expect(mockSessionApi.getSessions).toHaveBeenCalledTimes(1);

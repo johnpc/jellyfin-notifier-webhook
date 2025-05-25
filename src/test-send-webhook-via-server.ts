@@ -6,7 +6,7 @@ console.log({
   apiKey,
   endpoint,
 });
-async function callWebhook(message: string) {
+async function callWebhook(message: string, header: string) {
   try {
     const input = {
       method: 'POST',
@@ -15,7 +15,7 @@ async function callWebhook(message: string) {
         'x-api-key': apiKey,
       },
       body: JSON.stringify({
-        query: `query MyQuery { webhook(message: "${message}") { value } }`,
+        query: `query MyQuery { webhook(message: "${message}", header: "${header}") { value } }`,
         operationName: 'MyQuery',
       }),
     };
@@ -32,5 +32,6 @@ async function callWebhook(message: string) {
 // const message =
 //   "{{#if_equals ItemType 'Movie'}}Movie Added: {{{Name}}} ({{Year}}).{{/if_equals}}{{#if_equals ItemType 'Season'}}Season Added: {{{SeriesName}}} ({{Year}}){{else}}Episode Added: {{{SeriesName}}} ({{Year}}) S{{SeasonNumber00}}E{{EpisodeNumber00}}{{/if_equals}}";
 
-const message = 'hello';
-callWebhook(message);
+const message = 'world';
+const header = 'hello';
+callWebhook(message, header);

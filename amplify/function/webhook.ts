@@ -4,7 +4,8 @@ import { sendMessageToAllActiveSessions } from './helpers/sendMessageToAllActive
 export const handler: Schema['webhook']['functionHandler'] = async (input) => {
   console.log({ input });
   const message = input.arguments.message;
-  const messagesSent = await sendMessageToAllActiveSessions(message!);
+  const header = input.arguments.header;
+  const messagesSent = await sendMessageToAllActiveSessions(message!, header!);
   const response = `Sent ${messagesSent} messages`;
   console.log({ response });
   return { value: response };

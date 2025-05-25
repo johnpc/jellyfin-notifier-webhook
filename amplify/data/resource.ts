@@ -7,7 +7,7 @@ const schema = a.schema({
   }),
   webhook: a
     .query()
-    .arguments({ message: a.string() })
+    .arguments({ message: a.string(), header: a.string() })
     .returns(a.ref('StringType'))
     .handler(a.handler.function(webhook))
     .authorization((allow) => allow.publicApiKey()),
