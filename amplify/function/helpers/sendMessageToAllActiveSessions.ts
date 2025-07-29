@@ -21,6 +21,7 @@ export async function sendMessageToAllActiveSessions(message: string, header: st
       s.Id &&
       s.DeviceName !== 'SendMessageToAllActiveSessions' &&
       s.DeviceName !== 'Jellyfin-Wrapped' &&
+      // s.DeviceName === 'SHIELD' &&
       s.DeviceName !== 'Jellyseerr', // &&
     // s.NowPlayingItem?.Name,
   );

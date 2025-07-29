@@ -1,5 +1,4 @@
 import { Api, Jellyfin } from '@jellyfin/sdk';
-import { generateGuid } from './generateGuid';
 
 export const authenticateByUserName = async (serverUrl: string, username: string, password: string): Promise<Api> => {
   const jellyfin = new Jellyfin({
@@ -9,7 +8,7 @@ export const authenticateByUserName = async (serverUrl: string, username: string
     },
     deviceInfo: {
       name: 'SendMessageToAllActiveSessions',
-      id: generateGuid(),
+      id: 'SendMessageToAllActiveSessions',
     },
   });
   const api = jellyfin.createApi(serverUrl);

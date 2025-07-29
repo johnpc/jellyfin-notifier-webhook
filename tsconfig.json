@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
     "outDir": "dist",
     "module": "commonjs",
     "strict": true,
@@ -9,9 +10,10 @@
     "noImplicitReturns": false,
     "noImplicitThis": false,
     "incremental": true,
-    "typeRoots": ["./node_modules/@types"],
+    "typeRoots": ["./node_modules/@types", "./src"],
     "types": ["node", "jest"],
     "resolveJsonModule": true
   },
+  "include": ["src/**/*", "amplify/**/*"],
   "exclude": ["node_modules", "build"]
 }

@@ -22,7 +22,11 @@
     "prepare": "husky",
     "testSendViaWebhook": "tsx ./src/test-send-webhook-via-server.ts",
     "testSendDirect": "tsx ./src/test-send-message-direct.ts",
-    "testListSessions": "tsx ./src/test-list-sessions.ts"
+    "testListSessions": "tsx ./src/test-list-sessions.ts",
+    "clearSendMessageDevices": "tsx ./src/clear-sendmessage-devices.ts",
+    "debugSingleDevice": "tsx ./src/debug-single-device.ts",
+    "clearJellyfinWrappedDevices": "tsx ./src/clear-jellyfin-wrapped-devices.ts",
+    "clearSendMessageDevicesRegistry": "tsx ./src/clear-sendmessage-devices-registry.ts"
   },
   "main": "./dist/index.js",
   "exports": "./dist/index.js",

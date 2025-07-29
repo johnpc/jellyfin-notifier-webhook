@@ -2,8 +2,9 @@ import { sendSessionMessage } from '../../amplify/function/helpers/sendSessionMe
 import { SessionApi } from '@jellyfin/sdk/lib/generated-client/api/session-api';
 
 describe('sendSessionMessage', () => {
+  const mockSendMessageCommand = jest.fn();
   const mockSessionApi = {
-    sendMessageCommand: jest.fn(),
+    sendMessageCommand: mockSendMessageCommand,
   } as unknown as SessionApi;
 
   beforeEach(() => {
@@ -14,18 +15,20 @@ describe('sendSessionMessage', () => {
     // Arrange
     const sessionId = 'test-session-id';
     const message = 'Test message';
-    mockSessionApi.sendMessageCommand.mockResolvedValue(undefined);
+    const header = 'Test header';
+    mockSendMessageCommand.mockResolvedValue(undefined);
 
     // Act
-    await sendSessionMessage(mockSessionApi, sessionId, message);
+    await sendSessionMessage(mockSessionApi, sessionId, message, header);
 
     // Assert
-    expect(mockSessionApi.sendMessageCommand).toHaveBeenCalledTimes(1);
-    expect(mockSessionApi.sendMessageCommand).toHaveBeenCalledWith({
+    expect(mockSendMessageCommand).toHaveBeenCalledTimes(1);
+    expect(mockSendMessageCommand).toHaveBeenCalledWith({
       sessionId: sessionId,
       messageCommand: {
         Text: message,
-        TimeoutMs: 10000,
+        Header: header,
+        TimeoutMs: 5000,
       },
     });
   });
@@ -34,10 +37,11 @@ describe('sendSessionMessage', () => {
     // Arrange
     const sessionId = 'test-session-id';
     const message = 'Test message';
+    const header = 'Test header';
     const error = new Error('API Error');
-    mockSessionApi.sendMessageCommand.mockRejectedValue(error);
+    mockSendMessageCommand.mockRejectedValue(error);
 
     // Act & Assert
-    await expect(sendSessionMessage(mockSessionApi, sessionId, message)).rejects.toThrow('API Error');
+    await expect(sendSessionMessage(mockSessionApi, sessionId, message, header)).rejects.toThrow('API Error');
   });
 });

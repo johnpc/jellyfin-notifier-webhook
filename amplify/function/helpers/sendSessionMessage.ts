@@ -10,5 +10,7 @@ export async function sendSessionMessage(sessionApi: SessionApi, sessionId: stri
     },
   };
   console.log({ messagePayload });
+  // console.log({ sessionApi });
   await sessionApi.sendMessageCommand(messagePayload);
+  // console.log({ res });
 }
