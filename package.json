@@ -26,7 +26,11 @@
     "clearSendMessageDevices": "tsx ./src/clear-sendmessage-devices.ts",
     "debugSingleDevice": "tsx ./src/debug-single-device.ts",
     "clearJellyfinWrappedDevices": "tsx ./src/clear-jellyfin-wrapped-devices.ts",
-    "clearSendMessageDevicesRegistry": "tsx ./src/clear-sendmessage-devices-registry.ts"
+    "clearOldDevices": "tsx ./src/clear-old-devices.ts",
+    "debugDevicesApi": "tsx ./src/debug-devices-api.ts",
+    "clearSendMessageDevicesRegistry": "tsx ./src/clear-sendmessage-devices-registry.ts",
+    "cleanupLyrics": "tsx ./cleanup-lyrics.ts",
+    "cleanupLyricsAll": "tsx ./cleanup-lyrics-all.ts"
   },
   "main": "./dist/index.js",
   "exports": "./dist/index.js",
